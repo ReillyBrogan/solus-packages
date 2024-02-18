@@ -3,8 +3,8 @@
         <Name>vscode</Name>
         <Homepage>https://code.visualstudio.com/</Homepage>
         <Packager>
-            <Name>Troy Harvey</Name>
-            <Email>harveydevel@gmail.com</Email>
+            <Name>Reilly Brogan</Name>
+            <Email>solus@reillybrogan.com</Email>
         </Packager>
         <License>GPL-3.0-or-later</License>
         <License>MIT</License>
@@ -21,20 +21,21 @@
 </Description>
         <PartOf>programming.ide</PartOf>
         <Files>
-            <Path fileType="executable">/usr/bin/code-oss</Path>
-            <Path fileType="data">/usr/share/applications/code-oss-url-handler.desktop</Path>
-            <Path fileType="data">/usr/share/applications/code-oss.desktop</Path>
-            <Path fileType="data">/usr/share/bash-completion/completions/code-oss</Path>
+            <Path fileType="executable">/usr/bin/code</Path>
+            <Path fileType="data">/usr/share/applications/code-url-handler.desktop</Path>
+            <Path fileType="data">/usr/share/applications/code.desktop</Path>
+            <Path fileType="data">/usr/share/bash-completion/completions/code</Path>
             <Path fileType="data">/usr/share/icons/hicolor/scalable/apps/visual-studio-code.svg</Path>
-            <Path fileType="data">/usr/share/metainfo/com.visualstudio.code.appdata.xml</Path>
+            <Path fileType="data">/usr/share/metainfo/code.appdata.xml</Path>
             <Path fileType="data">/usr/share/mime/packages/code-workspace.xml</Path>
             <Path fileType="data">/usr/share/vscode/LICENSES.chromium.html</Path>
-            <Path fileType="data">/usr/share/vscode/bin/code-oss</Path>
+            <Path fileType="data">/usr/share/vscode/bin/code</Path>
+            <Path fileType="data">/usr/share/vscode/bin/code-tunnel</Path>
             <Path fileType="data">/usr/share/vscode/chrome-sandbox</Path>
             <Path fileType="data">/usr/share/vscode/chrome_100_percent.pak</Path>
             <Path fileType="data">/usr/share/vscode/chrome_200_percent.pak</Path>
             <Path fileType="data">/usr/share/vscode/chrome_crashpad_handler</Path>
-            <Path fileType="data">/usr/share/vscode/code-oss</Path>
+            <Path fileType="data">/usr/share/vscode/code</Path>
             <Path fileType="data">/usr/share/vscode/icudtl.dat</Path>
             <Path fileType="data">/usr/share/vscode/libEGL.so</Path>
             <Path fileType="data">/usr/share/vscode/libGLESv2.so</Path>
@@ -97,7 +98,7 @@
             <Path fileType="data">/usr/share/vscode/locales/zh-CN.pak</Path>
             <Path fileType="data">/usr/share/vscode/locales/zh-TW.pak</Path>
             <Path fileType="data">/usr/share/vscode/resources.pak</Path>
-            <Path fileType="data">/usr/share/vscode/resources/app/LICENSE.txt</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/LICENSE.rtf</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/ThirdPartyNotices.txt</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/extensions/bat/language-configuration.json</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/extensions/bat/package.json</Path>
@@ -844,12 +845,26 @@
             <Path fileType="data">/usr/share/vscode/resources/app/extensions/yaml/package.json</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/extensions/yaml/package.nls.json</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/extensions/yaml/syntaxes/yaml.tmLanguage.json</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-bul.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-chs.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-cht.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-deu.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-esp.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-fra.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-hun.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-ita.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-jpn.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-kor.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-ptb.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-rus.rtf</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/licenses/LICENSE-trk.rtf</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/@parcel/watcher/build/Release/watcher.node</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/@vscode/policy-watcher/build/Release/vscode-policy-watcher.node</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/@vscode/ripgrep/bin/rg</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/@vscode/spdlog/build/Release/spdlog.node</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/@vscode/sqlite3/build/Release/vscode-sqlite3.node</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/@vscode/vsce-sign/bin/vsce-sign</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/kerberos/build/Release/kerberos.node</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/kerberos/build/Release/obj.target/kerberos.node</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/native-is-elevated/build/Release/iselevated.node</Path>
@@ -859,6 +874,8 @@
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/node-pty/lib/shared/conout.js</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/node-pty/lib/worker/conoutSocketWorker.js</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/vscode-oniguruma/release/onig.wasm</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/vsda/build/Release/vsda.node</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/vsda/rust/web/vsda_bg.wasm</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/windows-foreground-love/build/Release/foreground_love.node</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/node_modules.asar.unpacked/windows-foreground-love/build/Release/obj.target/foreground_love.node</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/out/bootstrap-amd.js</Path>
@@ -998,12 +1015,14 @@
             <Path fileType="data">/usr/share/vscode/resources/app/package.json</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/product.json</Path>
             <Path fileType="data">/usr/share/vscode/resources/app/resources/linux/code.png</Path>
-            <Path fileType="data">/usr/share/vscode/resources/completions/bash/code-oss</Path>
-            <Path fileType="data">/usr/share/vscode/resources/completions/zsh/_code-oss</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/telemetry-core.json</Path>
+            <Path fileType="data">/usr/share/vscode/resources/app/telemetry-extensions.json</Path>
+            <Path fileType="data">/usr/share/vscode/resources/completions/bash/code</Path>
+            <Path fileType="data">/usr/share/vscode/resources/completions/zsh/_code</Path>
             <Path fileType="data">/usr/share/vscode/snapshot_blob.bin</Path>
             <Path fileType="data">/usr/share/vscode/v8_context_snapshot.bin</Path>
             <Path fileType="data">/usr/share/vscode/vk_swiftshader_icd.json</Path>
-            <Path fileType="data">/usr/share/zsh/site-functions/_code-oss</Path>
+            <Path fileType="data">/usr/share/zsh/site-functions/_code</Path>
         </Files>
         <Replaces>
             <Package>vscode-ms</Package>
@@ -1011,11 +1030,11 @@
     </Package>
     <History>
         <Update release="210">
-            <Date>2024-03-12</Date>
+            <Date>2024-03-13</Date>
             <Version>1.87.2</Version>
             <Comment>Packaging update</Comment>
-            <Name>Troy Harvey</Name>
-            <Email>harveydevel@gmail.com</Email>
+            <Name>Reilly Brogan</Name>
+            <Email>solus@reillybrogan.com</Email>
         </Update>
     </History>
 </PISI>

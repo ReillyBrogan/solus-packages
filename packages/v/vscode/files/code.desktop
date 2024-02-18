@@ -2,7 +2,7 @@
 Name=Visual Studio Code
 Comment=Code Editing. Redefined.
 GenericName=Text Editor
-Exec=code-oss --disable-crash-reporter --unity-launch %U
+Exec=code --disable-crash-reporter --unity-launch %U
 Icon=visual-studio-code
 Type=Application
 StartupNotify=true

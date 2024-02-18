@@ -17,4 +17,4 @@ if [ -z "${VSCODE_NO_WAYLAND+set}" ]; then
   VSCODE_FLAGS="$VSCODE_FLAGS --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations"
 fi
 
-exec /usr/share/vscode/code-oss $VSCODE_FLAGS "$@"
+exec /usr/share/vscode/code $VSCODE_FLAGS "$@"

@@ -2,7 +2,7 @@ name       : vscode
 version    : 1.87.2
 release    : 210
 source     :
-    - git|https://github.com/Microsoft/vscode.git : 1.87.2
+    - https://update.code.visualstudio.com/1.87.2/linux-x64/stable : 9c2aba5692532946567445d3458c7027a713de263b1b2b5dff8c8c16806f3f02
 homepage   : https://code.visualstudio.com/
 license    :
     - GPL-3.0-or-later # Icon (from Papirus)
@@ -26,6 +26,7 @@ builddeps  :
     - pkgconfig(xscrnsaver)
     - pkgconfig(xshmfence)
     - pkgconfig(xtst)
+    - jq
     - yarn
     - yq
 rundeps    :
@@ -34,41 +35,29 @@ rundeps    :
     - nodejs
 replaces   :
     - vscode-ms
-setup      : |
-    %patch -p1 -i $pkgfiles/0001-Attempt-to-symlink-.config-Code-to-.config-Code-OSS-.patch
-    cp $pkgfiles/code.png $workdir/resources/linux/
-
-    # Appdata/MIME
-    sed -i -e 's|@@NAME@@|code-oss|g' \
-           -e 's|@@NAME_LONG@@|Visual Studio Code|g' \
-           -e 's|@@LICENSE@@|MIT|g' resources/linux/code.appdata.xml
-    sed -i -e 's|@@NAME@@|code|g' \
-           -e 's|@@NAME_LONG@@|Visual Studio Code|g' resources/linux/code-workspace.xml
-
-    # Add icon to MIME
-    yq -o=xml '.mime-info.mime-type.icon.+@name = "visual-studio-code"' -i resources/linux/code-workspace.xml
-
-    yarn install --frozen-lockfile --network-timeout 180000
-build      : |
-    yarn run gulp vscode-linux-x64
 install    : |
     export vsdir=/usr/share/vscode
     install -dm00755 $installdir/$vsdir
-    cp -R $workdir/../VSCode-linux-x64/* $installdir/$vsdir/
-    install -Dm00755 $pkgfiles/vscode.sh $installdir/usr/bin/code-oss
+    cp -R $workdir/* $installdir/$vsdir/
+    install -Dm00755 $pkgfiles/vscode.sh $installdir/usr/bin/code
 
-    install -Dm00644 $pkgfiles/product.json $installdir/$vsdir/resources/app/product.json
-    install -Dm00644 $pkgfiles/code-oss.desktop $installdir/usr/share/applications/code-oss.desktop
-    install -Dm00644 $pkgfiles/code-oss-url-handler.desktop $installdir/usr/share/applications/code-oss-url-handler.desktop
+    install -Dm00644 $pkgfiles/code.desktop $installdir/usr/share/applications/code.desktop
+    install -Dm00644 $pkgfiles/code-url-handler.desktop $installdir/usr/share/applications/code-url-handler.desktop
     install -Dm00644 $pkgfiles/visual-studio-code.svg $installdir/usr/share/icons/hicolor/scalable/apps/visual-studio-code.svg
-    install -Dm00755 $pkgfiles/code-oss $installdir/$vsdir/bin/code-oss
-    install -Dm00644 $installdir/$vsdir/resources/completions/bash/code-oss $installdir/usr/share/bash-completion/completions/code-oss
-    install -Dm00644 $installdir/$vsdir/resources/completions/zsh/_code-oss $installdir/usr/share/zsh/site-functions/_code-oss
+    install -Dm00755 $pkgfiles/code $installdir/$vsdir/bin/code
+
+    # Shell completions
+    install -dm00755 $installdir/usr/share/bash-completion/completions
+    install -dm00755 $installdir/usr/share/zsh/site-functions
+    ln -s ../../vscode/resources/completions/bash/code $installdir/usr/share/bash-completion/completions/code
+    ln -s ../../vscode/resources/completions/zsh/_code $installdir/usr/share/zsh/site-functions/_code
 
     # Fix Wayland/Xorg window associations
-    sed -i 's|Code - OSS|code-oss|g' $installdir/$vsdir/resources/app/package.json
-    sed -i 's|code-oss-url-handler.desktop|code-oss.desktop|g' $installdir/$vsdir/resources/app/package.json
+    package_json=$installdir/$vsdir/resources/app/package.json
+    tmp=$(mktemp)
+    jq ".desktopName = \"code.desktop\"" $package_json > "$tmp" && mv "$tmp" $package_json
+    chmod 644 $package_json
 
     # Appdata/MIME
-    install -Dm00644 $workdir/resources/linux/code.appdata.xml $installdir/usr/share/metainfo/com.visualstudio.code.appdata.xml
-    install -Dm00644 $workdir/resources/linux/code-workspace.xml $installdir/usr/share/mime/packages/code-workspace.xml
+    install -Dm00644 $pkgfiles/code.appdata.xml $installdir/usr/share/metainfo/code.appdata.xml
+    install -Dm00644 $pkgfiles/code-workspace.mime $installdir/usr/share/mime/packages/code-workspace.xml

@@ -1,6 +1,6 @@
 chrome-sandbox
 chrome_crashpad_handler
-code-oss
+code
 foreground_love.node
 iselevated.node
 kerberos.node
@@ -12,7 +12,9 @@ libvk_swiftshader.so
 libvulkan.so.1
 pty.node
 spdlog.node
+vsce-sign
 vscode-policy-watcher.node
 vscode-sqlite3.node
+vsda.node
 watchdog.node
 watcher.node
